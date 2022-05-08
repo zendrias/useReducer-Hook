@@ -20,7 +20,7 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    dispatch({ type: ACTIONS.ADD_TODO, payload: { name: name, id: Date.now, complete: false } })
+    dispatch({ type: ACTIONS.ADD_TODO, payload: { name: name, id: Date.now(), complete: false } })
     setName('')
   }
 
@@ -31,6 +31,19 @@ function App() {
         <input type="text" onChange={(e) => setName(e.target.value)} value={name} />
         <button type="submit">Add To-do</button>
       </form>
+      <div>
+        {todos.map(todo => (
+          <div key={todo.id}>
+            <p
+            >
+              {todo.name}
+            </p>
+            <button></button>
+            <button></button>
+          </div>
+
+        ))}
+      </div>
     </div>
   );
 }
